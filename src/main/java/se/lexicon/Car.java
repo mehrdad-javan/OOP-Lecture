@@ -12,7 +12,7 @@ public class Car {
     private String model;
     private int year;
     // add more fields as needed
-
+    private Person owner;
 
     // ##Constructors## should be declared after the fields.
     // Constructors are special methods in OOP used to initialize objects.
@@ -29,11 +29,12 @@ public class Car {
     }*/
 
     public Car(String brand, String model, int year) {
-        this.registrationNumber = UUID.randomUUID().toString().substring(0, 8);
+        this.registrationNumber = generateCarNumber();
         setBrand(brand);
         setModel(model);
         this.year = year;
     }
+
 
     public Car(String brand, String model) {
         this(brand, model, LocalDate.now().getYear());
@@ -47,21 +48,32 @@ public class Car {
     }
 
     // ##Methods##
+
+    private String generateCarNumber() {
+        return UUID.randomUUID().toString().substring(0, 8);
+    }
+
+
     public String getCarInfo() {
         String result = "Car Info -> " + registrationNumber + " , Brand: " + brand + " , Model: " + model + " , Year: " + year;
+        if(owner != null){
+            result+= " OwnerName: " + owner.getName();
+        } else {
+            result+= " No owner assigned.";
+        }
         return result;
     }
 
 
-    public String getRegistrationNumber(){
+    public String getRegistrationNumber() {
         return registrationNumber;
     }
 
-    public String getBrand(){
+    public String getBrand() {
         return brand;
     }
 
-    public String getModel(){
+    public String getModel() {
         return model;
     }
 
@@ -79,6 +91,11 @@ public class Car {
         this.model = model;
     }
 
+    public Person getOwner() {
+        return owner;
+    }
 
-
+    public void setOwner(Person owner) {
+        this.owner = owner;
+    }
 }

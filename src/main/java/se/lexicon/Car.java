@@ -7,10 +7,10 @@ public class Car {
 
     // ##Fields##: are variables that store data within an object
     // should be declared at the top of the class.
-    String registrationNumber;
-    String brand;
-    String model;
-    int year;
+    private String registrationNumber;
+    private String brand;
+    private String model;
+    private int year;
     // add more fields as needed
 
 
@@ -30,8 +30,8 @@ public class Car {
 
     public Car(String brand, String model, int year) {
         this.registrationNumber = UUID.randomUUID().toString().substring(0, 8);
-        this.brand = brand;
-        this.model = model;
+        setBrand(brand);
+        setModel(model);
         this.year = year;
     }
 
@@ -51,5 +51,34 @@ public class Car {
         String result = "Car Info -> " + registrationNumber + " , Brand: " + brand + " , Model: " + model + " , Year: " + year;
         return result;
     }
+
+
+    public String getRegistrationNumber(){
+        return registrationNumber;
+    }
+
+    public String getBrand(){
+        return brand;
+    }
+
+    public String getModel(){
+        return model;
+    }
+
+    public void setBrand(String brand) {
+        if (brand == null || brand.trim().isEmpty()) {
+            throw new IllegalArgumentException("Brand cannot be null or empty.");
+        }
+        this.brand = brand;
+    }
+
+    public void setModel(String model) {
+        if (model == null || model.trim().isEmpty()) {
+            throw new IllegalArgumentException("Model cannot be null or empty.");
+        }
+        this.model = model;
+    }
+
+
 
 }

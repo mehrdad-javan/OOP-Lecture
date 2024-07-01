@@ -18,4 +18,10 @@ public final class Burger extends Product {
         return "Name: " + super.getName() + " , Price: " + super.getPrice() + " , Type: " + this.type + " , Cheese: " + hasCheese;
     }
 
+    @Override
+    public double calculateTax() {
+        return super.getPrice() * 0.1;
+    }
+
+
 }

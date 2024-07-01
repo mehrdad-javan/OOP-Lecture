@@ -27,8 +27,11 @@ public abstract class Product {
     public String getDescription() {
         return "Item: " + name + " , Price: " + price;
     }
+
     /*public final String getDescription() {
         return "Item: " + name + " , Price: " + price;
     }*/
+
+    public abstract double calculateTax();
 
 }

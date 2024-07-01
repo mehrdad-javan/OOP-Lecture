@@ -19,6 +19,11 @@ public class Fries extends Product {
     }
 
     @Override
+    public double calculateTax() {
+        return super.getPrice() * 0.2;
+    }
+
+    @Override
     public String toString() {
         return "Fries{" +
                 "size=" + size +

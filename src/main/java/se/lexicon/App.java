@@ -9,6 +9,11 @@ public class App {
         System.out.println(chickenBurger.getDescription());
 
         Fries smalllFries = new Fries(Size.SMALL, true, false);
-        System.out.println(smalllFries); // ?
+        System.out.println(smalllFries);
+
+
+        System.out.println("---------------");
+        System.out.println(cheeseBurger.calculateTax());
+        System.out.println(smalllFries.calculateTax());
     }
 }
